@@ -158,6 +158,23 @@ html {
   margin-right: 0;
 }
 
+#id1 {
+  border-color: #e6e6e6;
+  border-width: 1px;
+}
+
+#id2 {
+  background-blend-mode: color-burn; 
+  background-color : rgba(0, 126, 255, 0.06);
+}
+
+#id3 {
+  height: calc(100vh - 150px);
+}
+
+#id4 {
+  font-weight: 700;
+}
 /* Phone landscape and bigger */
 @media (min-width: 640px) {
 
@@ -11998,6 +12015,9 @@ ul.course-curriculum-list {
 
 /* courses filter list  accordion */
 
+/* .sidebar-filter-contents {
+  text-align: left;
+} */
 
 .sidebar-filter-list>li {
   overflow: hidden;
@@ -12050,7 +12070,7 @@ ul.course-curriculum-list {
 }
 
 .sidebar-filter-list .uk-form-controls label .uk-radio {
-  margin-right: 9px;
+  margin-right: 0px;
 }
 
 /* ---------------------------------- */

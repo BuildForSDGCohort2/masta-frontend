@@ -2,6 +2,15 @@
 <html lang="en-US">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FMMC7EY1HL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FMMC7EY1HL');
+</script>
   <!-- Basic Page Needs
     ================================================== -->
   <title>Home &#8211; Masta HealthCare</title>
@@ -10,8 +19,8 @@
   <!-- <meta name="viewport"
     content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" /> -->
   <meta name="description" content="Masta HealthCare">
-  <link rel="icon" href="%PUBLIC_URL%/assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/assets/images/favicon.png">
+  <link rel="icon" href="%PUBLIC_URL%/health-care-add-svgrepo-com.svg">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/health-care-add-svgrepo-com.svg">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
   <!-- CSS 
@@ -19,6 +28,7 @@
   <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/style.css">
   <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/night-mode.css">
   <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/framework.css">
+  <!-- <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/alan.css"> -->
 
   <!-- icons
     ================================================== -->
@@ -37,12 +47,12 @@
   <!-- For Night mode -->
   <script>
     (function (window, document, undefined) {
-      // 'use strict';
-      // if (!('localStorage' in window)) return;
-      // var nightMode = localStorage.getItem('gmtNightMode');
-      // if (nightMode) {
-      //   document.documentElement.className += ' night-mode';
-      // }
+      'use strict';
+      if (!('localStorage' in window)) return;
+      var nightMode = localStorage.getItem('gmtNightMode');
+      if (nightMode) {
+        document.documentElement.className += ' night-mode';
+      }
       document.documentElement.className += ' night-mode';
     })(window, document);
 
