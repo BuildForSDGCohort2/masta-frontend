@@ -1,7 +1,6 @@
 import React from "react";
 import {
-  NavLink,
-  Link
+  NavLink
 } from "react-router-dom";
 
 const _sidebar = () => {
@@ -29,7 +28,7 @@ const _sidebar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="#"> <img src="assets/icons/other/hospital-location-svgrepo-com.svg" alt="" />
+                <NavLink to="/nearest-hospital"> <img src="assets/icons/other/hospital-location-svgrepo-com.svg" alt="" />
                   <span> Nearest Hospitals </span>
                 </NavLink>
               </li>
@@ -38,7 +37,7 @@ const _sidebar = () => {
                   <span> Emergency </span> </NavLink>
               </li>
               <li>
-                <NavLink to="/recipe" exact="/recipe" activeClassName="selected"><img src="assets/icons/other/health-care-diet-svgrepo-com.svg" alt="" />
+                <NavLink to="/recipe" exact={true} activeClassName="selected"><img src="assets/icons/other/health-care-diet-svgrepo-com.svg" alt="" />
                 <span> Philia Finder </span>
                 </NavLink>
               </li>
