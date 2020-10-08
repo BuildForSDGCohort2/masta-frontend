@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
-
 import _header from "./App/layout/_header";
 import _sidebar from "./App/layout/_sidebar";
 import Home from "./App/components/Home";
@@ -22,7 +21,6 @@ function App() {
   }, []);
 
   return (
-    <>
       <div id="wrapper">
         <_sidebar />
         <_header />
@@ -38,7 +36,6 @@ function App() {
           <Route exact component={Error} forceRefresh/>
         </Switch>
       </div>
-    </>
   );
 }
 export default App;

@@ -1,4 +1,6 @@
 import React from "react";
+import News from "./News";
+import Error from "./Error";
 
 const Home = () => {
   return (
@@ -75,6 +77,7 @@ const Home = () => {
                         </a>
 
                       </li>
+
                       <li>
 
                         <a href="#" uk-toggle="target: body ; cls: is-open">
@@ -174,7 +177,7 @@ const Home = () => {
                     <div className="uk-flex uk-flex-between">
 
                       <button className="button outline-light circle" type="button" id="id1">Public</button>
-                      <div  uk-dropdown="true">
+                      <div uk-dropdown="true">
                         <ul className="uk-nav uk-dropdown-nav">
                           <li className="uk-active"><a href="#">Only me</a></li>
                           <li><a href="#">Every one</a></li>
@@ -610,7 +613,7 @@ const Home = () => {
                   <div className="fullsizevid">
                     <div className="embed-video">
                       <iframe src="https://www.youtube.com/embed/pQN-pnXPaV g " frameBorder="0" uk-video="automute: true"
-                      allowFullScreen={true} uk-responsive="true"></iframe>
+                        allowFullScreen={true} uk-responsive="true"></iframe>
                     </div>
                   </div>
 
@@ -706,7 +709,6 @@ const Home = () => {
 
 
               <h3 className="mb-2"> Birthdays</h3>
-
               <a href="#" className="uk-link-reset">
                 <div className="uk-flex uk-flex-top py-2 pb-0 pl-2 mb-2 bg-secondary-hover rounded">
                   <img src="assets/images/icons/gift-icon.png" width="35px" className="mr-3" alt="" />
@@ -714,21 +716,13 @@ const Home = () => {
                 have a birthdays to day .</p>
                 </div>
               </a>
-
-
-              <div className="p-5 mb-3 rounded uk-background-cover uk-light" id="id2" data-src="assets/images/events/img-2.jpg"
-                uk-img="true">
-                <div className="uk-width-4-5">
-                  <h3 className="mb-2">
-                    <i className="uil-users-alt p-1 text-dark bg-white circle icon-small"></i>
-                Groups </h3>
-                  <p> New ways to find and join communications .</p>
-                  <a href="#" className="button white small"> Find your groups</a>
-                </div>
+              <div class="carousel p-0 mb-0 rounded uk-background-cover uk-light" id="id2" data-flickity='{ "lazyLoad": true , "autoPlay": true, "wrapAround": true}'>
+                <Error/>
               </div>
 
-              <h3 className="mb-1"> Contacts </h3>
+              <br/>
 
+              <h3 className="mb-1"> Contacts </h3>
               <div uk-sticky="offset:70 ; media : @m">
 
                 <ul className="uk-child-width-expand tab-small my-2 uk-tab">
@@ -871,8 +865,6 @@ const Home = () => {
 
                 </div>
               </div>
-
-
 
             </div>
 
@@ -1311,22 +1303,12 @@ const Home = () => {
 
             </ul>
 
-
-
-
-
-
-
           </div>
-
-
-
-
         </div>
       </div>
 
 
-     
+
       <div id="sidebar-chat" className="sidebar-chat px-3" uk-offcanvas="flip: true; overlay: true">
         <div className="uk-offcanvas-bar">
 
