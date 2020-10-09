@@ -26,8 +26,8 @@ const _header = () => {
             </div>
 
             <div id="logo">
-              <Link  to="/home"> <img src="assets/images/logo.png" alt="" /></Link>
-              <Link  to="/home"> <img src="assets/images/logo-light.png" className="logo-inverse" alt="" /></Link>
+            <a href="/" exact={true} ><img src="assets/icons/other/masta.svg" alt="" /></a>
+            <a href="/" exact={true} > <img src="assets/icons/other/masta.svg" className="logo-inverse" alt="" /></a>
             </div>
 
             <div className="head_search">
@@ -130,7 +130,7 @@ const _header = () => {
                         <span className="notification-text">
                           <strong>The Masta Team</strong>
                           <br/>
-                          <span className="text-primary"> Welcome to the Masta Community Health Care </span>
+                          <span className="text-primary"> Welcome to the Masta Community Health Care. this is the guest use read-only view, hang for few days for the live version </span>
                           <br /> <span className="time-ago"> 1 sec ago </span>
                         </span>
                       </Link>
@@ -139,12 +139,12 @@ const _header = () => {
                 </div>
               </div>
 
-              <Link  className="opts_account" to="#"> <img src="assets/icons/other/IMG_4714.png" alt="" /></Link>
+              <Link  className="opts_account" to="#"> <img src="assets/icons/other/user-male-com.svg" alt="" /></Link>
               <div uk-dropdown="mode:click ; animation: uk-animation-slide-bottom-small" className="dropdown-notifications rounded">
                 <Link  to="timeline.html">
                   <div className="dropdown-user-details">
                     <div className="dropdown-user-avatar">
-                      <img src="assets/icons/other/IMG_4714.png" alt="" />
+                      <img src="assets/icons/other/user-male-com.svg" alt="" />
                     </div>
                     <div className="dropdown-user-name"> Phil Odinga <span>See your profile</span> </div>
                   </div>
