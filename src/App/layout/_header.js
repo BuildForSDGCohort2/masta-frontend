@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Link
 } from "react-router-dom";
+import {philiaClient} from "../../api/philiaClient";
 
 const _header = () => {
+  const [query, setQuery] = useState('');
+  const [philia, setPhilia] = useState({});
+  const search = async(e) => {
+    if (e.key === 'Enter'){
+      const data = await philiaClient(query, 'sugar-conscious')
+      setPhilia(data);
+      setQuery('');
+    }
+
+  }
   return (
     <>
       <div id="main_header">
@@ -22,8 +33,14 @@ const _header = () => {
             <div className="head_search">
               <form>
                 <div className="head_search_cont">
-                  <input value="" type="text" className="form-control"
-                    placeholder="Search for Doctors , Recipes and more..." autoComplete="off" onChange={()=> "test"}/>
+                  <input 
+                  value={query} type="text" 
+                  className="form-control"
+                  placeholder="Search for Doctors , Recipes and more..." 
+                  autoComplete="off" 
+                  onChange={(e)=> 
+                  setQuery(e.target.value)} 
+                  onKeyPress={search}/>
                   <i className="s_icon uil-search-alt"></i>
                 </div>
                 <div uk-dropdown="pos: top;mode:click;animation: uk-animation-slide-bottom-small"
@@ -31,14 +48,14 @@ const _header = () => {
 
                   <ul className="dropdown-search-list">
                     <li className="list-title"> Recent Searches </li>
-                    <li> <Link  to="#"> <img src="assets/images/avatars/avatar-2.jpg" alt="" /> Erica Jones
+                    <li> <Link  to="#"> <img src="assets/images/avatars/avatar-2.jpg" alt="" /> Dr. ololade oketunbi
                                 </Link> </li>
-                    <li> <Link  to="#"> <img src="assets/images/group/group-2.jpg" alt="" /> Coffee Addicts</Link>
+                    <li> <Link  to="#"> <img src="assets/images/avatars/avatar-2.jpg" alt="" /> Dr. Joy Ejiofoh
+                                </Link> </li>
+                    <li> <Link  to="#"> <img src="assets/images/group/group-2.jpg" alt="" /> Chicken Satay</Link>
                     </li>
-                    <li> <Link  to="#"> <img src="assets/images/group/group-4.jpg" alt="" /> Mountain Riders
+                    <li> <Link  to="#"> <img src="assets/images/group/group-4.jpg" alt="" /> Burger
                                 </Link> </li>
-                    <li> <Link  to="#"> <img src="assets/images/group/group-5.jpg" alt="" /> Property Rent And
-                                    Sale </Link> </li>
                     <li className="menu-divider"></li>
                     <li className="list-footer"> <Link  to="#"> Searches History </Link>
                     </li>
@@ -71,7 +88,7 @@ const _header = () => {
               </div>
 
               <Link  to="#" className="opts_icon" uk-tooltip="title: Messages ; pos: bottom ;offset:7">
-                <img src="assets/icons/other/chat-svgrepo-com.svg" alt="" /> <span>4</span>
+                <img src="assets/icons/other/chat-svgrepo-com.svg" alt="" /> 
               </Link>
               <div uk-dropdown="mode:click ; animation: uk-animation-slide-bottom-small" className="dropdown-notifications">
                 <div className="dropdown-notifications-content" data-simplebar>
@@ -80,101 +97,9 @@ const _header = () => {
                     <Link  to="#">
                       <i className="icon-feather-settings" uk-tooltip="title: Message settings ; pos: left"></i>
                     </Link>
-                    <input type="text" className="uk-input" placeholder="Search in Messages" />
+                    <input type="text" className="uk-input" placeholder="No messages available" />
                   </div>
                   <ul>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar status-online">
-                          <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Jonathan Madano</strong>
-                          <p>Thanks for The Answer ... <span className="time-ago"> 2 h </span> </p>
-
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Stella Johnson</strong>
-                          <p> Alex will explain you how ... <span className="time-ago"> 3 h </span>
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar status-online">
-                          <img src="assets/images/avatars/avatar-1.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Alex Dolgove</strong>
-                          <p> Alia just joined Messenger! <span className="time-ago"> 3 h </span> </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar status-online">
-                          <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Adrian Mohani</strong>
-                          <p>Thanks for The Answer ... <span className="time-ago"> 2 h </span> </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Jonathan Madano</strong>
-                          <p>Thanks for The Answer ... <span className="time-ago"> 2 h </span> </p>
-
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Stella Johnson</strong>
-                          <p> Alex will explain you how ... <span className="time-ago"> 3 h </span>
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-1.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Alex Dolgove</strong>
-                          <p> Alia just joined Messenger! <span className="time-ago"> 3 h </span> </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                        </span>
-                        <div className="notification-text notification-msg-text">
-                          <strong>Adrian Mohani</strong>
-                          <p>Thanks for The Answer ... <span className="time-ago"> 2 h </span> </p>
-                        </div>
-                      </Link>
-                    </li>
                   </ul>
                 </div>
                 <div className="dropdown-notifications-footer">
@@ -184,7 +109,7 @@ const _header = () => {
 
 
               <Link  to="#" className="opts_icon" uk-tooltip="title: Notifications ; pos: bottom ;offset:7">
-                <img src="assets/icons/other/notification-svgrepo-com.svg" alt="" /> <span>3</span>
+                <img src="assets/icons/other/notification-svgrepo-com.svg" alt="" /> <span>1</span>
               </Link>
               <div uk-dropdown="mode:click ; animation: uk-animation-slide-bottom-small" className="dropdown-notifications">
                 <div className="dropdown-notifications-content" data-simplebar>
@@ -198,85 +123,15 @@ const _header = () => {
                     <li>
                       <Link  to="#">
                         <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                        </span>
-                        <span className="notification-icon bg-gradient-primary">
-                          <i className="icon-feather-thumbs-up"></i>
-                        </span>
-                        <span className="notification-text">
-                          <strong>Adrian Moh.</strong> Like Your Comment On Video
-                          <span className="text-primary">Learn Prototype Faster</span>
-                          <br /> <span className="time-ago"> 9 hours ago </span>
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                        </span>
-                        <span className="notification-icon bg-gradient-danger">
-                          <i className="icon-feather-star"></i></span>
-                        <span className="notification-text">
-                          <strong>Alex Dolgove</strong> Added New Review In Video
-                                <span className="text-primary"> Full Stack PHP Developer</span>
-                          <br /> <span className="time-ago"> 19 hours ago </span>
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-4.jpg" alt="" />
+                          <img src="assets/icons/other/robot-ai-svgrepo-com.svg" alt="" />
                         </span>
                         <span className="notification-icon bg-gradient-success">
                           <i className="icon-feather-message-circle"></i></span>
                         <span className="notification-text">
-                          <strong>Stella John</strong> Replay Your Comment in
-                                <span className="text-primary"> Adobe XD Tutorial</span>
-                          <br /> <span className="time-ago"> 12 hours ago </span>
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                        </span>
-                        <span className="notification-icon bg-gradient-primary">
-                          <i className="icon-feather-thumbs-up"></i></span>
-                        <span className="notification-text">
-                          <strong>Adrian Moh.</strong> Like Your Comment On Video
-                                <span className="text-primary"> Learn Prototype Faster</span>
-                          <br /> <span className="time-ago"> 9 hours ago </span>
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                        </span>
-                        <span className="notification-icon bg-gradient-warning">
-                          <i className="icon-feather-star"></i></span>
-                        <span className="notification-text">
-                          <strong>Alex Dolgove</strong> Added New Review In Video
-                                <span className="text-primary"> Full Stack PHP Developer</span>
-                          <br /> <span className="time-ago"> 19 hours ago </span>
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link  to="#">
-                        <span className="notification-avatar">
-                          <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                        </span>
-                        <span className="notification-icon bg-gradient-success">
-                          <i className="icon-feather-message-circle"></i></span>
-                        <span className="notification-text">
-                          <strong>Stella John</strong> Replay Your Comment in
-                          <span className="text-primary"> Adobe XD Tutorial</span>
-                          <br /> <span className="time-ago"> 12 hours ago </span>
+                          <strong>The Masta Team</strong>
+                          <br/>
+                          <span className="text-primary"> Welcome to the Masta Community Health Care </span>
+                          <br /> <span className="time-ago"> 1 sec ago </span>
                         </span>
                       </Link>
                     </li>

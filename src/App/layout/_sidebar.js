@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  NavLink
+  NavLink, Link
 } from "react-router-dom";
 
 const _sidebar = () => {
@@ -18,9 +18,9 @@ const _sidebar = () => {
           <div className="sections">
             <ul>
               <li className="active">
-                <NavLink to="/home"> <img src="assets/icons/health/003-medical.svg" alt="" />
+                <a href="/"> <img src="assets/icons/health/003-medical.svg" alt="" />
                   <span> Feed </span>
-                </NavLink>
+                </a>
               </li>
               <li>
                 <NavLink to="#"> <img src="assets/icons/other/doctor-svgrepo-com.svg" alt="" />
@@ -28,18 +28,18 @@ const _sidebar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/nearest-hospital"> <img src="assets/icons/other/hospital-location-svgrepo-com.svg" alt="" />
+                <a href="/nearest-hospital"> <img src="assets/icons/other/hospital-location-svgrepo-com.svg" alt="" />
                   <span> Nearest Hospitals </span>
-                </NavLink>
+                </a>
               </li>
               <li>
                 <NavLink to="#"> <img src="assets/icons/other/ambulance-svgrepo-com.svg" alt="" />
                   <span> Emergency </span> </NavLink>
               </li>
               <li>
-                <NavLink to="/recipe" exact={true} activeClassName="selected"><img src="assets/icons/other/health-care-diet-svgrepo-com.svg" alt="" />
+                <a href="/recipe" exact={true} activeClassName="selected"><img src="assets/icons/other/health-care-diet-svgrepo-com.svg" alt="" />
                 <span> Philia Finder </span>
-                </NavLink>
+                </a>
               </li>
               <li>
                 <NavLink to="#"> <img src="assets/icons/other/umoja0.svg" alt="" />

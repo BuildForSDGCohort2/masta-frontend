@@ -1,8 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import News from "./News";
 import Error from "./Error";
+import {philiaClient} from "../../api/philiaClient";
 
 const Home = () => {
+  const [query, setQuery] = useState('');
+  const [philia, setPhilia] = useState({});
+  const search = async(e) => {
+    if (e.key === 'Enter'){
+      const data = await philiaClient(query, 'sugar-conscious')
+      setPhilia(data);
+      setQuery('');
+    }
+
+  }
   return (
     <>
       <div className="main_content">
@@ -191,140 +202,6 @@ const Home = () => {
                   </div>
 
                 </div>
-
-              </div>
-
-
-              <div className="post">
-                <div className="post-heading">
-                  <div className="post-avature">
-                    <img src="assets/images/avatars/avatar-6.jpg" alt="" />
-                  </div>
-                  <div className="post-title">
-                    <h4> Mariah Ali </h4>
-                    <p> 5 <span> hrs</span> <i className="uil-users-alt"></i> </p>
-                  </div>
-                  <div className="post-btn-action">
-                    <span className="icon-more uil-ellipsis-h"></span>
-                    <div className="mt-0 p-2" uk-dropdown="pos: bottom-right;mode:hover ">
-                      <ul className="uk-nav uk-dropdown-nav">
-                        <li><a href="#"> <i className="uil-share-alt mr-1"></i> Share</a> </li>
-                        <li><a href="#"> <i className="uil-edit-alt mr-1"></i> Edit Post </a></li>
-                        <li><a href="#"> <i className="uil-comment-slash mr-1"></i> Disable comments
-                      </a></li>
-                        <li><a href="#"> <i className="uil-favorite mr-1"></i> Add favorites </a></li>
-                        <li><a href="#" className="text-danger"> <i className="uil-trash-alt mr-1"></i>
-                        Delete </a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="post-description">
-                  <div className="fullsizeimg">
-                    <img src="assets/images/post/img-1.jpg" alt="" />
-                  </div>
-
-                  <div className="post-state-details">
-                    <div>
-                      <img src="assets/images/icons/reactions_like.png" alt="" />
-                      <img src="assets/images/icons/reactions_love.png" alt="" />
-                      <p> 13 </p>
-                    </div>
-                    <p> 24 Comments</p>
-                  </div>
-
-                </div>
-
-                <div className="post-state">
-                  <div className="post-state-btns"> <i className="uil-thumbs-up"></i> 126<span> Liked </span>
-                  </div>
-                  <div className="post-state-btns"> <i className="uil-heart"></i> 18 <span> Coments</span>
-                  </div>
-                  <div className="post-state-btns"> <i className="uil-share-alt"></i> 193 <span> Shared </span>
-                  </div>
-                  <div className="post-state-btns"> <i className="uil-bookmark"></i> 13 <span> Saved </span>
-                  </div>
-                </div>
-
-
-                <div className="post-comments">
-                  <a href="#" className="view-more-comment"> Veiw 8 more Comments</a>
-                  <div className="post-comments-single">
-                    <div className="post-comment-avatar">
-                      <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                    </div>
-                    <div className="post-comment-text">
-                      <div className="post-comment-text-inner">
-                        <h6> Alex Dolgove</h6>
-                        <p> Ut wisi enim ad minim laoreet dolore magna aliquam erat </p>
-                      </div>
-                      <div className="uk-text-small">
-                        <a href="#" className="text-danger mr-1"> <i className="uil-heart"></i> Love </a>
-                        <a href="#" className=" mr-1"> Replay </a>
-                        <span> 1d</span>
-                      </div>
-                    </div>
-                    <a href="#" className="post-comment-opt"></a>
-                  </div>
-                  <div className="post-comments-single">
-                    <div className="post-comment-avatar">
-                      <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                    </div>
-                    <div className="post-comment-text">
-                      <div className="post-comment-text-inner">
-                        <h6>Stella Johnson</h6>
-                        <p> Ut wisi enim ad minim laoreet dolore <strong> David !</strong> </p>
-                      </div>
-                      <div className="uk-text-small">
-                        <a href="#" className="text-primary mr-1"> <i className="uil-thumbs-up"></i> Like
-                    </a>
-                        <a href="#" className=" mr-1"> Replay </a>
-                        <span> 2d</span>
-                      </div>
-                    </div>
-                    <a href="#" className="post-comment-opt"></a>
-                  </div>
-                  <div className="post-comments-single">
-                    <div className="post-comment-avatar">
-                      <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                    </div>
-                    <div className="post-comment-text">
-                      <div className="post-comment-text-inner">
-                        <h6> Jonathan Madano </h6>
-                        <p> sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-                        erat
-                      volutpat.<strong> David !</strong> </p>
-                      </div>
-                      <div className="uk-text-small">
-                        <a href="#" className="text-danger mr-1"> <i className="uil-heart"></i> Love </a>
-                        <a href="#" className=" mr-1"> Replay </a>
-                        <span> 3d</span>
-                      </div>
-                    </div>
-                    <a href="#" className="post-comment-opt"></a>
-                  </div>
-
-
-                  <a href="#" className="view-more-comment"> Veiw 8 more Comments</a>
-
-                  <div className="post-add-comment">
-                    <div className="post-add-comment-avature">
-                      <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                    </div>
-                    <div className="post-add-comment-text-area">
-                      <input type="text" placeholder="Write your comment..." />
-                      <div className="icons">
-                        <span className="uil-link-alt"></span>
-                        <span className="uil-grin"></span>
-                        <span className="uil-image"></span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
 
               </div>
 
@@ -569,7 +446,14 @@ const Home = () => {
                       <img src="assets/images/avatars/avatar-2.jpg" alt="" />
                     </div>
                     <div className="post-add-comment-text-area">
-                      <input type="text" placeholder="Write your comment..." />
+                      <input 
+                      type="text" 
+                      placeholder="Write your comment..." 
+                      value={query}
+                      className="form-control"
+                      autoComplete="off" 
+                      onChange={(e)=> setQuery(e.target.value)} 
+                      onKeyPress={search}/>
                       <div className="icons">
                         <span className="uil-link-alt"></span>
                         <span className="uil-grin"></span>
@@ -583,127 +467,7 @@ const Home = () => {
 
 
               </div>
-
-              <div className="post">
-                <div className="post-heading">
-                  <div className="post-avature">
-                    <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                  </div>
-                  <div className="post-title">
-                    <h4> Dennis Han </h4>
-                    <p> 5 <span> hrs</span> <i className="uil-users-alt"></i> </p>
-                  </div>
-                  <div className="post-btn-action">
-                    <span className="icon-more uil-ellipsis-h"></span>
-                    <div className="mt-0 p-2" uk-dropdown="pos: bottom-right;mode:hover ">
-                      <ul className="uk-nav uk-dropdown-nav">
-                        <li><a href="#"> <i className="uil-share-alt mr-1"></i> Share</a> </li>
-                        <li><a href="#"> <i className="uil-edit-alt mr-1"></i> Edit Post </a></li>
-                        <li><a href="#"> <i className="uil-comment-slash mr-1"></i> Disable comments
-                      </a></li>
-                        <li><a href="#"> <i className="uil-favorite mr-1"></i> Add favorites </a></li>
-                        <li><a href="#" className="text-danger"> <i className="uil-trash-alt mr-1"></i>
-                        Delete </a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="post-description">
-
-                  <div className="fullsizevid">
-                    <div className="embed-video">
-                      <iframe src="https://www.youtube.com/embed/pQN-pnXPaV g " frameBorder="0" uk-video="automute: true"
-                        allowFullScreen={true} uk-responsive="true"></iframe>
-                    </div>
-                  </div>
-
-                  <div className="post-state-details">
-                    <div>
-                      <img src="assets/images/icons/reactions_like.png" alt="" />
-                      <img src="assets/images/icons/reactions_love.png" alt="" />
-                      <p> 13 </p>
-                    </div>
-                    <p> <span className="mr-2"> <i className="uil-eye"></i> 38 Veiws </span> 212 Comments </p>
-                  </div>
-
-                </div>
-
-                <div className="post-state">
-                  <div className="post-state-btns"> <i className="uil-thumbs-up"></i> 126<span> Liked </span>
-                  </div>
-                  <div className="post-state-btns"> <i className="uil-heart"></i> 18 <span> Coments</span>
-                  </div>
-                  <div className="post-state-btns"> <i className="uil-share-alt"></i> 193 <span> Shared </span>
-                  </div>
-                  <div className="post-state-btns"> <i className="uil-bookmark"></i> 13 <span> Saved </span>
-                  </div>
-                </div>
-
-
-
-                <div className="post-comments">
-                  <a href="#" className="view-more-comment"> Veiw 8 more Comments</a>
-                  <div className="post-comments-single">
-                    <div className="post-comment-avatar">
-                      <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                    </div>
-                    <div className="post-comment-text">
-                      <div className="post-comment-text-inner">
-                        <h6> Alex Dolgove</h6>
-                        <p> Ut wisi enim ad minim laoreet dolore magna aliquam erat </p>
-                      </div>
-                      <div className="uk-text-small">
-                        <a href="#" className="text-danger mr-1"> <i className="uil-heart"></i> Love </a>
-                        <a href="#" className=" mr-1"> Replay </a>
-                        <span> 3d</span>
-                      </div>
-                    </div>
-                    <a href="#" className="post-comment-opt"></a>
-                  </div>
-                  <div className="post-comments-single">
-                    <div className="post-comment-avatar">
-                      <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                    </div>
-                    <div className="post-comment-text">
-                      <div className="post-comment-text-inner">
-                        <h6>Stella Johnson</h6>
-                        <p> Ut wisi enim ad minim laoreet dolore <strong> David !</strong> </p>
-                      </div>
-                      <div className="uk-text-small">
-                        <a href="#" className="text-primary mr-1"> <i className="uil-thumbs-up"></i> Like
-                    </a>
-                        <a href="#" className=" mr-1"> Replay </a>
-                        <span> 3d</span>
-                      </div>
-                    </div>
-                    <a href="#" className="post-comment-opt"></a>
-                  </div>
-
-                  <div className="post-add-comment">
-                    <div className="post-add-comment-avature">
-                      <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                    </div>
-                    <div className="post-add-comment-text-area">
-                      <input type="text" placeholder="Write your comment..." />
-                      <div className="icons">
-                        <span className="uil-link-alt"></span>
-                        <span className="uil-grin"></span>
-                        <span className="uil-image"></span>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-
-              </div>
-
-
             </div>
-
-
 
             <div className="uk-width-expand">
 
@@ -726,7 +490,7 @@ const Home = () => {
               <div uk-sticky="offset:70 ; media : @m">
 
                 <ul className="uk-child-width-expand tab-small my-2 uk-tab">
-                  <li className="uk-active"><a href="#">Friends</a></li>
+                  <li className="uk-active"><a href="#">Top rating doctors</a></li>
                   <li><a href="#">Groups</a></li>
                 </ul>
 
@@ -735,20 +499,27 @@ const Home = () => {
 
                   <a href="#">
                     <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-2.jpg" alt="" />
+                      <div className="contact-list-media"> <img src="assets/icons/other/doctor-svgrepo-com.svg" alt="" />
                         <span className="online-dot"></span> </div>
-                      <h5> Dennis Han</h5>
+                      <h5> Dr. Sam Esidem</h5>
                     </div>
                   </a>
                   <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">
                     <div className="contact-list-box">
                       <div className="contact-list-box-media">
-                        <img src="assets/images/avatars/avatar-2.jpg" alt="" />
+                        <img src="assets/icons/other/doctor-svgrepo-com.svg" alt="" />
                         <span className="online-dot"></span>
                       </div>
-                      <h4> Dennis Han</h4>
-                      <p> <i className="uil-users-alt icon-small"></i> Become friends with <strong> Stella
-                      Johnson </strong> and <strong> 14 Others</strong>
+                      <h4> <strong>Dr. Sam Esidem </strong>
+                      <br/>
+                       <span>Dermatologist </span>
+                      </h4>
+                      <div className="star-rating"><span className="avg"> 4.8 </span> <span
+                        className="star"></span><span className="star"></span><span
+                          className="star"></span><span className="star"></span><span
+                            className="star"></span>
+                      </div>
+                      <p>  
                       </p>
                       <div className="contact-list-box-btns">
                         <a href="#" className="button primary block mr-2">
@@ -763,21 +534,27 @@ const Home = () => {
 
                   <a href="#">
                     <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-1.jpg" alt="" />
+                      <div className="contact-list-media"> <img src="assets/icons/other/doctor-female-com.svg" alt="" />
                         <span className="online-dot"></span> </div>
-                      <h5> Erica Jones </h5>
+                      <h5> Dr. Joy Ejiofoh </h5>
                     </div>
                   </a>
                   <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">
                     <div className="contact-list-box">
                       <div className="contact-list-box-media">
-                        <img src="assets/images/avatars/avatar-3.jpg" alt="" />
+                        <img src="assets/icons/other/doctor-female-com.svg" alt="" />
                         <span className="online-dot"></span>
                       </div>
-                      <h4> Erica Jones </h4>
-                      <p> <i className="uil-users-alt icon-small"></i> Become friends with <strong> Stella
-                      Johnson </strong> and
-                    <strong> 14 Others</strong>
+                      <h4> <strong>Dr. Joy Ejiofoh </strong>
+                        <br />
+                        <span>Internist </span>
+                      </h4>
+                      <div className="star-rating"><span className="avg"> 4.8 </span> <span
+                        className="star"></span><span className="star"></span><span
+                          className="star"></span><span className="star"></span><span
+                            className="star"></span>
+                      </div>
+                      <p>
                       </p>
                       <div className="contact-list-box-btns">
                         <a href="#" className="button primary block mr-2"> <i className="uil-envelope mr-1"></i>
@@ -792,75 +569,109 @@ const Home = () => {
 
                   <a href="#">
                     <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-7.jpg" alt="" />
+                      <div className="contact-list-media"> <img src="assets/icons/other/doctor-svgrepo-com.svg" alt="" />
                         <span className="offline-dot"></span> </div>
-                      <h5> Stella Johnson </h5>
+                      <h5> Dr. Femi </h5>
                     </div>
                   </a>
+                  <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">
+                    <div className="contact-list-box">
+                      <div className="contact-list-box-media">
+                        <img src="assets/icons/other/doctor-svgrepo-com.svg" alt="" />
+                        <span className="offline-dot"></span>
+                      </div>
+                      <h4> <strong>Dr. Femi </strong>
+                        <br />
+                        <span>Ophthalmologist </span>
+                      </h4>
+                      <div className="star-rating"><span className="avg"> 4.8 </span> <span
+                        className="star"></span><span className="star"></span><span
+                          className="star"></span><span className="star"></span><span
+                            className="no-stars"></span>
+                      </div>
+                      <p>
+                      </p>
+                      <div className="contact-list-box-btns">
+                        <a href="#" className="button primary block mr-2">
+                          <i className="uil-envelope mr-1"></i> Send message</a>
+                        <a href="#" className="button secondary button-icon mr-2">
+                          <i className="uil-list-ul"> </i> </a>
+                        <a href="#" className="button secondary button-icon"> <i className="uil-ellipsis-h">
+                        </i> </a>
+                      </div>
+                    </div>
+                  </div>
 
                   <a href="#">
                     <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-5.jpg" alt="" />
+                      <div className="contact-list-media"> <img src="assets/icons/other/doctor-svgrepo-com.svg" alt="" />
                         <span className="offline-dot"></span> </div>
-                      <h5> Alex Dolgove </h5>
+                      <h5> Dr. Jethro Magaji </h5>
                     </div>
                   </a>
-                  <a href="#">
-                    <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                        <span className="online-dot"></span> </div>
-                      <h5> Dennis Han</h5>
+                  <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">
+                  <div className="contact-list-box">
+                    <div className="contact-list-box-media">
+                      <img src="assets/icons/other/doctor-svgrepo-com.svg" alt="" />
+                      <span className="offline-dot"></span>
                     </div>
-                  </a>
-                  <a href="#">
-                    <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                        <span className="online-dot"></span> </div>
-                      <h5> Erica Jones </h5>
+                      <h4> <strong>Dr. Jethro Magaji </strong>
+                        <br />
+                        <span>Ophthalmologist </span>
+                      </h4>
+                      <div className="star-rating"><span className="avg"> 4.8 </span> <span
+                        className="star"></span><span className="star"></span><span
+                          className="star"></span><span className="star"></span><span
+                            className="star"></span>
+                      </div>
+                      <p>
+                      </p>
+                    <div className="contact-list-box-btns">
+                      <a href="#" className="button primary block mr-2">
+                        <i className="uil-envelope mr-1"></i> Send message</a>
+                      <a href="#" className="button secondary button-icon mr-2">
+                        <i className="uil-list-ul"> </i> </a>
+                      <a href="#" className="button secondary button-icon"> <i className="uil-ellipsis-h">
+                      </i> </a>
                     </div>
-                  </a>
+                  </div>
+                </div>
+
+
                   <a href="#">
                     <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-3.jpg" alt="" />
+                      <div className="contact-list-media"> <img src="assets/icons/other/doctor-female-com.svg" alt="" />
                         <span className="offline-dot"></span> </div>
-                      <h5> Stella Johnson </h5>
+                      <h5> Dr. ololade oketunbi </h5>
                     </div>
                   </a>
-                  <a href="#">
-                    <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                        <span className="offline-dot"></span> </div>
-                      <h5> Alex Dolgove </h5>
+                  <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">
+                    <div className="contact-list-box">
+                      <div className="contact-list-box-media">
+                        <img src="assets/icons/other/doctor-female-com.svg" alt="" />
+                        <span className="offline-dot"></span>
+                      </div>
+                      <h4> <strong>Dr. ololade oketunbi </strong>
+                      <br />
+                      <span>Pediatric pathologist </span>
+                    </h4>
+                    <div className="star-rating"><span className="avg"> 4.0 </span> <span
+                      className="star"></span><span className="star"></span><span
+                        className="star"></span><span className="star"></span><span
+                          className="star"></span>
                     </div>
-                  </a>
-                  <a href="#">
-                    <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                        <span className="online-dot"></span> </div>
-                      <h5> Dennis Han</h5>
+                    <p>
+                    </p>
+                      <div className="contact-list-box-btns">
+                        <a href="#" className="button primary block mr-2"> <i className="uil-envelope mr-1"></i>
+                      Send message</a>
+                        <a href="#" className="button secondary button-icon mr-2"> <i className="uil-list-ul">
+                        </i> </a>
+                        <a href="#" className="button secondary button-icon"> <i className="uil-ellipsis-h">
+                        </i> </a>
+                      </div>
                     </div>
-                  </a>
-                  <a href="#">
-                    <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                        <span className="online-dot"></span> </div>
-                      <h5> Erica Jones </h5>
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                        <span className="offline-dot"></span> </div>
-                      <h5> Stella Johnson </h5>
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div className="contact-list">
-                      <div className="contact-list-media"> <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                        <span className="offline-dot"></span> </div>
-                      <h5> Alex Dolgove </h5>
-                    </div>
-                  </a>
+                  </div>
 
 
                 </div>
@@ -1307,126 +1118,7 @@ const Home = () => {
         </div>
       </div>
 
-
-
-      <div id="sidebar-chat" className="sidebar-chat px-3" uk-offcanvas="flip: true; overlay: true">
-        <div className="uk-offcanvas-bar">
-
-          <div className="sidebar-chat-head mb-2">
-
-            <div className="btn-actions">
-              <a href="#" uk-tooltip="title: Search ;offset:7"
-                uk-toggle="target: .sidebar-chat-search; animation: uk-animation-slide-top-small"> <i
-                  className="icon-feather-search"></i> </a>
-              <a href="#" uk-tooltip="title: settings ;offset:7"> <i className="icon-feather-settings"></i> </a>
-              <a href="#"> <i className="uil-ellipsis-v"></i> </a>
-              <a href="#" className="uk-hidden@s"> <button className="uk-offcanvas-close uk-close" type="button" uk-close="true"> </button>
-              </a>
-            </div>
-
-            <h2> Chats </h2>
-          </div>
-
-          <div className="sidebar-chat-search" hidden>
-            <input type="text" className="uk-input" placeholder="Search in Messages" />
-            <span className="btn-close" uk-toggle="target: .sidebar-chat-search; animation: uk-animation-slide-top-small"> <i
-              className="icon-feather-x"></i> </span>
-          </div>
-
-          <ul className="uk-child-width-expand sidebar-chat-tabs" uk-tab="true">
-            <li className="uk-active"><a href="#">Users</a></li>
-            <li><a href="#">Groups</a></li>
-          </ul>
-
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                <span className="online-dot"></span> </div>
-              <h5> Dennis Han</h5>
-            </div>
-          </a>
-
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-1.jpg" alt="" />
-                <span className="online-dot"></span> </div>
-              <h5> Erica Jones </h5>
-            </div>
-          </a>
-
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-7.jpg" alt="" />
-                <span className="offline-dot"></span> </div>
-              <h5> Stella Johnson </h5>
-            </div>
-          </a>
-
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                <span className="offline-dot"></span> </div>
-              <h5> Alex Dolgove </h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                <span className="online-dot"></span> </div>
-              <h5> Dennis Han</h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                <span className="online-dot"></span> </div>
-              <h5> Erica Jones </h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                <span className="offline-dot"></span> </div>
-              <h5> Stella Johnson </h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                <span className="offline-dot"></span> </div>
-              <h5> Alex Dolgove </h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                <span className="online-dot"></span> </div>
-              <h5> Dennis Han</h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                <span className="online-dot"></span> </div>
-              <h5> Erica Jones </h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-3.jpg" alt="" />
-                <span className="offline-dot"></span> </div>
-              <h5> Stella Johnson </h5>
-            </div>
-          </a>
-          <a href="#">
-            <div className="contact-list">
-              <div className="contact-list-media"> <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                <span className="offline-dot"></span> </div>
-              <h5> Alex Dolgove </h5>
-            </div>
-          </a>
-        </div>
-      </div>
+      
     </>
   )
 }
