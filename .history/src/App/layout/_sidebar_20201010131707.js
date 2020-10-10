@@ -47,6 +47,11 @@ const _sidebar = () => {
                 </a>
               </li>
               <li id="more-veiw" hidden>
+                <NavLink to="#"> <img src="assets/images/icons/friends.png" alt="" />
+                  <span> Friends </span>
+                </NavLink>
+              </li>
+              <li id="more-veiw" hidden>
                 <NavLink to="#"> <img src="assets/icons/other/blogger-blog-svgrepo-com.svg" alt="" />
                   <span> Blogs </span>
                 </NavLink>

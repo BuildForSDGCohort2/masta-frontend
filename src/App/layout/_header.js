@@ -69,7 +69,7 @@ const _header = () => {
 
             <div className="head_user">
               <Link  to="/home" className="opts_icon_link uk-visible@s"> Home </Link>
-              <Link  to="#" className="opts_icon_link uk-visible@s"> Phil Odinga </Link>
+              <Link  to="#" className="opts_icon_link uk-visible@s"> Guest User </Link>
 
               <Link  to="#" className="opts_icon uk-visible@s" uk-tooltip="title: Apps ; pos: bottom ;offset:7">
                 <img src="assets/icons/other/apps-svgrepo-com.svg" alt="" />
@@ -130,7 +130,7 @@ const _header = () => {
                         <span className="notification-text">
                           <strong>The Masta Team</strong>
                           <br/>
-                          <span className="text-primary"> Welcome to the Masta Community Health Care. this is the guest use read-only view, hang for few days for the live version </span>
+                          <span className="text-primary"> Welcome to the Masta Community Health Care. this is the guest user read-only view, hang on a few days for the live version </span>
                           <br /> <span className="time-ago"> 1 sec ago </span>
                         </span>
                       </Link>
@@ -146,7 +146,7 @@ const _header = () => {
                     <div className="dropdown-user-avatar">
                       <img src="assets/icons/other/user-male-com.svg" alt="" />
                     </div>
-                    <div className="dropdown-user-name"> Phil Odinga <span>See your profile</span> </div>
+                    <div className="dropdown-user-name"> Guest User <span>See your profile</span> </div>
                   </div>
                 </Link>
                 <hr className="m-0" />

@@ -38,98 +38,7 @@ const Home = () => {
 
             <div className="uk-width-2-3@m fead-area">
 
-              <div className="section-small pt-0">
-                <div className="uk-position-relative" uk-slider="finite: true">
-
-                  <div className="uk-slider-container pb-3" >
-
-                    <ul
-                      className="uk-slider-items uk-child-width-1-5@m uk-child-width-1-3@s uk-child-width-1-3 story-slider uk-grid">
-                      <li>
-                        <a href="#" uk-toggle="target: body ; cls: is-open">
-                          <div className="story-card" data-src="assets/icons/other/doctor-svgrepo-com.svg" uk-img="true">
-                            <i className="uil-plus"></i>
-                            <div className="story-card-content">
-                              <h4> Dennis </h4>
-                            </div>
-                          </div>
-                        </a>
-                        
-                      </li>
-                      <li>
-                        <a href="#" uk-toggle="target: body ; cls: is-open">
-                          <div className="story-card" data-src="assets/images/events/listing-5.jpg" uk-img="true">
-                            <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                            <div className="story-card-content">
-                              <h4> Jonathan </h4>
-                            </div>
-                          </div>
-                        </a>
-
-                      </li>
-                      <li>
-                        <a href="#" uk-toggle="target: body ; cls: is-open">
-                          <div className="story-card" data-src="assets/images/avatars/avatar-lg-3.jpg" uk-img="true">
-                            <img src="assets/images/avatars/avatar-6.jpg" alt="" />
-                            <div className="story-card-content">
-                              <h4> Stella </h4>
-                            </div>
-                          </div>
-                        </a>
-
-                      </li>
-                      <li>
-
-                        <a href="#" uk-toggle="target: body ; cls: is-open">
-                          <div className="story-card" data-src="assets/images/avatars/avatar-lg-4.jpg" uk-img="true">
-                            <img src="assets/images/avatars/avatar-4.jpg" alt="" />
-                            <div className="story-card-content">
-                              <h4> Alex </h4>
-                            </div>
-                          </div>
-                        </a>
-
-                      </li>
-                      <li>
-
-                        <a href="#" uk-toggle="target: body ; cls: is-open">
-                          <div className="story-card" data-src="assets/images/avatars/avatar-lg-2.jpg" uk-img="true">
-                            <img src="assets/images/avatars/avatar-2.jpg" alt="" />
-                            <div className="story-card-content">
-                              <h4> Adrian </h4>
-                            </div>
-                          </div>
-                        </a>
-
-                      </li>
-
-                      <li>
-
-                        <a href="#" uk-toggle="target: body ; cls: is-open">
-                          <div className="story-card" data-src="assets/images/avatars/avatar-lg-5.jpg" uk-img="true">
-                            <img src="assets/images/avatars/avatar-5.jpg" alt="" />
-                            <div className="story-card-content">
-                              <h4> Dennis </h4>
-                            </div>
-                          </div>
-                        </a>
-
-                      </li>
-
-                    </ul>
-
-                    <div className="uk-visible@m">
-                      <a className="uk-position-center-left-out slidenav-prev" href="#" uk-slider-item="previous"></a>
-                      <a className="uk-position-center-right-out slidenav-next" href="#" uk-slider-item="next"></a>
-                    </div>
-                    <div className="uk-hidden@m">
-                      <a className="uk-position-center-left slidenav-prev" href="#" uk-slider-item="previous"></a>
-                      <a className="uk-position-center-right slidenav-next" href="#" uk-slider-item="next"></a>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
+              
 
               <div className="post-newer">
 
@@ -186,7 +95,7 @@ const Home = () => {
 
                     <div className="post-new-media">
                       <div className="post-new-media-user">
-                        <img src="assets/images/avatars/avatar-2.jpg" alt="" />
+                        <img src="assets/icons/other/user-male-com.svg" alt="" />
                       </div>
                       <div className="post-new-media-input">
                         <input 
@@ -1143,7 +1052,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       
     </>
   )

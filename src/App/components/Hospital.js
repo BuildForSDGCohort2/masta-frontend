@@ -34,8 +34,8 @@ const options = {
 };
 
 const center = {
-    lat: -4.3280818,
-    lng: 15.3060509,
+    lat: 9.0064773,
+    lng: 4.1771276,
 };
 
 function Hospital() {
@@ -50,7 +50,7 @@ function Hospital() {
     return (
         <GoogleMap
             mapContainerStyle={mapContainerStyle}
-            zoom={14}
+            zoom={9}
             center={center}
             options={options}
         >
