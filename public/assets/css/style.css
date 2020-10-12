@@ -13316,10 +13316,6 @@ ul.story-side-list li a .story-user-innr p span.story-time-ago{
 }
 
 .alanBtn-root {
-  position: fixed;
-  bottom: 25px;
-  right: 40px;
-  padding: 10px;
   z-index: 10;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
