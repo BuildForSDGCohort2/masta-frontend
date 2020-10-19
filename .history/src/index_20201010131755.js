@@ -15,5 +15,3 @@ ReactDOM.render(
   </ApolloProvider>,
   document.getElementById("root")
 );
-
-// UA-180964272-1

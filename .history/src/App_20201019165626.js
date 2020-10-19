@@ -6,18 +6,12 @@ import Home from "./App/components/Home";
 import Philia from "./App/components/Philia";
 import Hospital from "./App/components/Hospital";
 import { Route, Switch } from "react-router-dom";
-import ReactGA from "react-ga";
+import ReactGa from "react-ga";
 
-ReactGA.initialize("UA-180964272-1", {
-  debug: true,
-  titleCase: false,
-  gaOptions: {
-    userId: 123
-  }});
+ReactGa.initialize("UA-180964272-1");
 
 function App() {
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
     let alanBtnInstance = alanBtn({
       key:"0ea827ac2712d63fc6ba9fadc5a62e202e956eca572e1d8b807a3e2338fdd0dc/prod",
       onCommand: (commandData) => {

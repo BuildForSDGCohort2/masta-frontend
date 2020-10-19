@@ -6,18 +6,31 @@ import Home from "./App/components/Home";
 import Philia from "./App/components/Philia";
 import Hospital from "./App/components/Hospital";
 import { Route, Switch } from "react-router-dom";
-import ReactGA from "react-ga";
-
-ReactGA.initialize("UA-180964272-1", {
-  debug: true,
-  titleCase: false,
-  gaOptions: {
-    userId: 123
-  }});
 
 function App() {
+  // useEffect(() => {
+  //   alanBtn({
+  //     className: "chat-plus-btn",
+  //     key:"0ea827ac2712d63fc6ba9fadc5a62e202e956eca572e1d8b807a3e2338fdd0dc/prod",
+  //     onCommand: (commandData) => {
+  //       if (commandData.command === "go:back") {
+  //       }
+  //     },
+  //     onConnectionStatus: async function (status) {
+  //       if (status === 'authorized') {
+  //         await alanBtnInstance.activate();
+  //         alanBtnInstance.playText('WELCOME TO MASTA HEALTHCARE');
+  //       }
+  //     },
+  //     position: "fixed",
+  //     bottom: "25px",
+  //     right: "40px",
+  //     padding: "10px",
+      
+  //   });
+  // }, []);
+
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
     let alanBtnInstance = alanBtn({
       key:"0ea827ac2712d63fc6ba9fadc5a62e202e956eca572e1d8b807a3e2338fdd0dc/prod",
       onCommand: (commandData) => {
